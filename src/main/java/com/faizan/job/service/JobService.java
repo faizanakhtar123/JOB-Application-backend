@@ -16,23 +16,28 @@ public class JobService {
     // Load sample data when Application starts
     @PostConstruct
     public void load() {
-        JobPost job1 = new JobPost(
-                1,
-                "Java Developer",
-                "Backend Developer",
-                2,
-                List.of("Java", "Spring Boot", "SQL")
-        );
 
-        JobPost job2 = new JobPost(
-                2,
-                "Frontend Developer",
-                "React Developer",
-                1,
-                List.of("HTML", "CSS", "JavaScript", "React")
-        );
-        jobRepo.save(job2);
-        jobRepo.save(job1);
+        if (jobRepo.count() == 0) {
+
+            JobPost job1 = new JobPost(
+                    1,
+                    "Java Developer",
+                    "Backend Developer",
+                    2,
+                    List.of("Java", "Spring Boot", "SQL")
+            );
+
+            JobPost job2 = new JobPost(
+                    2,
+                    "Frontend Developer",
+                    "React Developer",
+                    1,
+                    List.of("HTML", "CSS", "JavaScript", "React")
+            );
+
+            jobRepo.save(job1);
+            jobRepo.save(job2);
+        }
     }
 
     // Get job by ID

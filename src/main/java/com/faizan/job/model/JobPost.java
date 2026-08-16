@@ -1,6 +1,8 @@
 package com.faizan.job.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +19,7 @@ import java.util.List;
 public class JobPost {
 
      @Id
-     private int postId;
+     private Integer postId;
      private String postProfile;
      private String postDesc;
      private int reqExperience;
