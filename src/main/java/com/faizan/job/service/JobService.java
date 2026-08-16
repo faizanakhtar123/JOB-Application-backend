@@ -5,7 +5,6 @@ import com.faizan.job.repo.JobRepo;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,7 +45,7 @@ public class JobService {
 
     }
     // Get All Job
-    public List<JobPost> getAllJos() {
+    public List<JobPost> getAllJobs() {
        return jobRepo.findAll();
     }
     // Update Job
@@ -71,4 +70,9 @@ public class JobService {
     }
 
 
+    public List<JobPost> searchByKeyword(String keyword) {
+        return jobRepo.findByPostProfileContainingIgnoreCaseOrPostDescContainingIgnoreCase(
+                keyword,
+                keyword );
+    }
 }

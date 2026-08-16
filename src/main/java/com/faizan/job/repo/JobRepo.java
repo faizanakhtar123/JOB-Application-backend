@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface JobRepo extends JpaRepository<JobPost , Integer> {
 
+    List<JobPost> findByPostProfileContainingIgnoreCaseOrPostDescContainingIgnoreCase(String keyword, String keyword1);
 }
